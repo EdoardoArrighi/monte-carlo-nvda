@@ -16,26 +16,17 @@ The project:
 
 ## Methodology
 
-The simulation uses the Geometric Brownian Motion model:
+The simulation uses the Geometric Brownian Motion (GBM) model.
 
-\[
-S_{t+\Delta t} =
-S_t \cdot
-\exp\left[
-\left(\mu - \frac{1}{2}\sigma^2\right)\Delta t
-+ \sigma\sqrt{\Delta t}Z
-\right]
-\]
+For each trading day, the model combines:
 
-where:
+- an expected return estimated from NVIDIA’s historical log-returns;
+- volatility estimated from the same historical data;
+- a random shock drawn from a standard normal distribution.
 
-- \(S_t\) is the stock price at time \(t\);
-- \(\mu\) is the annualized return estimated from historical data;
-- \(\sigma\) is the annualized volatility;
-- \(\Delta t\) represents one trading day;
-- \(Z\) is a random value drawn from a standard normal distribution.
+The model simulates price changes in exponential form. This ensures that simulated stock prices remain positive.
 
-The model uses 252 trading days for one year.
+The simulation uses 252 trading days to represent one year.
 
 ## Results
 
